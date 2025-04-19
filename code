@@ -1,0 +1,130 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int kode1, kode2, kode3;
+
+    // Input
+    cout << "kode ke-1 : ";
+    cin >> kode1;
+    cout << "kode ke-2 : ";
+    cin >> kode2;
+    cout << "kode ke-3 : ";
+    cin >> kode3;
+
+    int total = kode1 + kode2 + kode3;
+
+    // Cek kondisi
+    if (total >= 200 && kode1 >= 50 && kode2 >= 50 && kode3 >= 50) {
+        cout << "Aman" << endl;
+    } else {
+        cout << "Bahaya" << endl;
+    }
+
+    return 0;
+}
+
+________________________________________________________________________________________________________________________________________
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int kode;
+
+    cout << "Masukkan kode 3 digit: ";
+    cin >> kode;
+
+    // Cek apakah kode valid (3 digit)
+    if (kode >= 100 && kode <= 999) {
+        int satuan = kode % 10;
+        int puluhan = (kode / 10) % 10;
+        int ratusan = kode / 100;
+        int jumlah = satuan + puluhan + ratusan;
+
+        cout << "Jumlah digit: " << jumlah << endl;
+    } else {
+        cout << "Kode Salah!" << endl;
+    }
+
+    return 0;
+}
+
+__________________________________________________________________________________________________________________________________________________
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    string nama, nim;
+    int nilai1, nilai2, nilai3;
+
+    // Input data mahasiswa
+    cout << "Nama Mahasiswa: ";
+    getline(cin, nama);
+    cout << "NIM: ";
+    cin >> nim;
+
+    // Input nilai 3 mata kuliah
+    cout << "Nilai Mata Kuliah\n";
+    cout << "Algoritma dan Pemrograman: ";
+    cin >> nilai1;
+    cout << "Probabilitas dan Statistika: ";
+    cin >> nilai2;
+    cout << "Sistem Operasi: ";
+    cin >> nilai3;
+
+    // Cek kelulusan per mata kuliah
+    cout << endl;
+    cout << "Algoritma dan Pemrograman: " << (nilai1 >= 60 ? "Lulus." : "Tidak Lulus. Silakan Ulangi di Tahun Depan!") << endl;
+    cout << "Probabilitas dan Statistika: " << (nilai2 >= 60 ? "Lulus." : "Tidak Lulus. Silakan Ulangi di Tahun Depan!") << endl;
+    cout << "Sistem Operasi: " << (nilai3 >= 60 ? "Lulus." : "Tidak Lulus. Silakan Ulangi di Tahun Depan!") << endl;
+
+    // Hitung rata-rata
+    float rata2 = (nilai1 + nilai2 + nilai3) / 3.0;
+    cout << "\nNilai Rata-rata Semester ini: " << rata2 << endl;
+
+    return 0;
+}
+
+__________________________________________________________________________________________________________________________________________________
+
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string daftarBuku;
+    int jumlah = 0;
+    int i = 0;
+
+    cout << "Masukkan daftar judul buku: ";
+    getline(cin, daftarBuku); // input string bisa mengandung spasi
+
+    // Hilangkan spasi berlebih di awal (optional)
+    while (i < daftarBuku.length() && daftarBuku[i] == ' ') {
+        i++;
+    }
+
+    // Perulangan dengan while untuk menghitung jumlah kata
+    while (i < daftarBuku.length()) {
+        // Lewati huruf/kata
+        while (i < daftarBuku.length() && daftarBuku[i] != ' ') {
+            i++;
+        }
+        jumlah++;
+
+        // Lewati spasi antar kata (jika ada spasi berlebih tetap akan dilewati)
+        while (i < daftarBuku.length() && daftarBuku[i] == ' ') {
+            i++;
+        }
+    }
+
+    cout << "Jumlah judul buku: " << jumlah << endl;
+
+    return 0;
+}
